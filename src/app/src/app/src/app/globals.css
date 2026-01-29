@@ -1,0 +1,5 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, Arial, sans-serif; }
+input, select, textarea, button { padding: 10px; font-size: 16px; }
+button { cursor: pointer; }
+a { color: inherit; }
