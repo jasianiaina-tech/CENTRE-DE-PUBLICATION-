@@ -1,0 +1,32 @@
+name: Deno CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Récupérer le code
+        uses: actions/checkout@v4
+
+      - name: Installer Deno
+        uses: denoland/setup-deno@v1
+        with:
+          deno-version: v2.x
+
+      - name: Vérifier le formatage
+        run: deno fmt --check
+
+      - name: Linter le projet
+        run: deno lint
+
+      - name: Exécuter les tests
+        run: deno test -A
